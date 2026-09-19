@@ -1,0 +1,9 @@
+# Build output
+build/
+x64/
+Project1/x64/
+output/
+
+# IDE
+.vs/
+*.user

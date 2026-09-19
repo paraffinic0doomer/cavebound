@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\primitives">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cave">
+      <UniqueIdentifier>{F4D7D578-DA4A-4DEF-90DE-434A0B48CF4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\robot">
+      <UniqueIdentifier>{6AF31B96-FDB5-4D84-88C7-65C3EDEC7B20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gameobjects">
+      <UniqueIdentifier>{7D2A6C41-3E5B-4F08-9A1D-C4B8E0F2A653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\demo">
+      <UniqueIdentifier>{B3E1C7A2-58D4-4F19-8C06-2A9D5F7E1B84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{365d6023-639e-4ed0-9b02-4791cb3868c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{0b1f5e0a-6c1d-4d7e-9a3b-5d2c8f4e7a11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Libraries\src\glad.c">
+      <Filter>Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Camera.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\CameraController.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\demo\DemoViews.cpp">
+      <Filter>src\demo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\EBO.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Mesh.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\shaderClass.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\VAO.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\VBO.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\primitives\Cone.cpp">
+      <Filter>src\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\primitives\Cube.cpp">
+      <Filter>src\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\primitives\Cylinder.cpp">
+      <Filter>src\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\primitives\CompositeObject.cpp">
+      <Filter>src\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\primitives\Primitive.cpp">
+      <Filter>src\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\primitives\Sphere.cpp">
+      <Filter>src\primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cave\Cave.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\CaveCeiling.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\CaveEntrance.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\CaveFloor.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\CaveLayout.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\CaveSection.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\CaveWalls.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\Pillar.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\Rock.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\Stalactite.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\cave\Stalagmite.cpp"><Filter>src\cave</Filter></ClCompile>
+    <ClCompile Include="src\robot\Robot.cpp"><Filter>src\robot</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\GameObject.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\Treasure.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\Coin.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\Gem.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\Checkpoint.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\ExitMarker.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+    <ClCompile Include="src\gameobjects\LevelObjects.cpp"><Filter>src\gameobjects</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\default.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\default.vert">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\Camera.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\CameraController.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\demo\DemoViews.h">
+      <Filter>src\demo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\EBO.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Mesh.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\shaderClass.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\VAO.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\VBO.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\primitives\Cone.h">
+      <Filter>src\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\primitives\Cube.h">
+      <Filter>src\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\primitives\Cylinder.h">
+      <Filter>src\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\primitives\CompositeObject.h">
+      <Filter>src\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\primitives\Primitive.h">
+      <Filter>src\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\primitives\Sphere.h">
+      <Filter>src\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cave\Cave.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\CaveCeiling.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\CaveEntrance.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\CaveFloor.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\CaveLayout.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\CaveSection.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\CaveWalls.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\Pillar.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\Rock.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\Stalactite.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\cave\Stalagmite.h"><Filter>src\cave</Filter></ClInclude>
+    <ClInclude Include="src\robot\Robot.h"><Filter>src\robot</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\GameObject.h"><Filter>src\gameobjects</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\Treasure.h"><Filter>src\gameobjects</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\Coin.h"><Filter>src\gameobjects</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\Gem.h"><Filter>src\gameobjects</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\Checkpoint.h"><Filter>src\gameobjects</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\ExitMarker.h"><Filter>src\gameobjects</Filter></ClInclude>
+    <ClInclude Include="src\gameobjects\LevelObjects.h"><Filter>src\gameobjects</Filter></ClInclude>
+  </ItemGroup>
+</Project>
