@@ -29,11 +29,11 @@ struct CaveSectionInfo {
 //   row 8  .  .  .  .  .  E  .  .  .  .  .
 class CaveLayout {
 public:
-	static constexpr float TILE = 3.0f;       // width of one tile = width of a tunnel
+	static constexpr float TILE = 3.5f;       // comfortable alley width for the third-person robot
 	static constexpr float HEIGHT = 3.5f;     // floor -> ceiling
 	static constexpr float SLAB = 0.3f;       // thickness of floor and ceiling slabs
-	static constexpr int COLS = 11;
-	static constexpr int ROWS = 9;
+	static constexpr int COLS = 15;
+	static constexpr int ROWS = 17;
 
 	CaveLayout();
 

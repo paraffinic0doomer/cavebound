@@ -10,7 +10,7 @@ static const glm::vec3 WALL_COLOR(0.27f, 0.235f, 0.21f);
 // floor behind them. With the cutaway on, those near-side walls are only CUTAWAY_HEIGHT tall while the far
 // walls stay full height. The cutaway is on at startup; the C key in the game switches it off for a cave with
 // full-height walls everywhere (e.g. when the camera is inside the cave).
-static bool cutawayFrontWalls = true;
+static bool cutawayFrontWalls = false;
 static const float CUTAWAY_HEIGHT = 1.1f;
 
 void CaveWalls::SetCutaway(bool enabled) {

@@ -20,6 +20,7 @@ public:
 
 	// Call once per frame with the time since the last frame, in seconds
 	void Update(float deltaTime);
+	void UpdateThirdPerson(float deltaTime, glm::vec3& robotPosition, glm::vec3& robotRotation);
 
 	// Smoothly moves the camera to `position`, looking at `lookTarget`
 	void FlyTo(const glm::vec3& position, const glm::vec3& lookTarget, float seconds = 0.9f);
@@ -34,6 +35,7 @@ private:
 
 	float moveSpeed;        // units per second
 	float lookSensitivity;  // degrees per pixel of mouse movement
+	float thirdPersonPitch;
 
 	bool mouseLooking;
 	double lastMouseX, lastMouseY;

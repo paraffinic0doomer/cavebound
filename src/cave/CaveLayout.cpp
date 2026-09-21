@@ -5,14 +5,14 @@ CaveLayout::CaveLayout() {
 	// The order matters only for who builds a shared wall block (see WallOwner).
 	sections = {
 		// Subtle warm variations keep the separate sections readable without making the cave look tiled.
-		{ "Entrance",     5, 8, 5, 8, glm::vec3(0.37f, 0.31f, 0.24f) },
-		{ "Main tunnel",  5, 5, 5, 7, glm::vec3(0.31f, 0.27f, 0.23f) },
-		{ "Main chamber", 3, 3, 7, 4, glm::vec3(0.34f, 0.30f, 0.27f) },
-		{ "Left tunnel",  1, 4, 2, 4, glm::vec3(0.30f, 0.29f, 0.27f) },
-		{ "Right tunnel", 8, 4, 9, 4, glm::vec3(0.32f, 0.28f, 0.24f) },
-		{ "Dead end 1",   4, 1, 4, 2, glm::vec3(0.29f, 0.25f, 0.22f) },
-		{ "Dead end 2",   6, 0, 6, 2, glm::vec3(0.30f, 0.26f, 0.23f) },
-		{ "Dead end 3",   3, 6, 4, 6, glm::vec3(0.31f, 0.27f, 0.24f) },
+		{ "Entrance",     7, 16, 7, 16, glm::vec3(0.37f, 0.31f, 0.24f) },
+		{ "Main tunnel",  5, 10, 7, 15, glm::vec3(0.31f, 0.27f, 0.23f) },
+		{ "Main chamber", 3, 5, 11, 9, glm::vec3(0.34f, 0.30f, 0.27f) },
+		{ "Left tunnel",  0, 6, 2, 7, glm::vec3(0.30f, 0.29f, 0.27f) },
+		{ "Right tunnel", 12, 6, 14, 7, glm::vec3(0.32f, 0.28f, 0.24f) },
+		{ "Dead end 1",   4, 0, 4, 4, glm::vec3(0.29f, 0.25f, 0.22f) },
+		{ "Treasure tunnel", 6, 0, 6, 4, glm::vec3(0.30f, 0.26f, 0.23f) },
+		{ "Dead end 3",   2, 8, 2, 12, glm::vec3(0.31f, 0.27f, 0.24f) },
 	};
 
 	for (int row = 0; row < ROWS; row++)

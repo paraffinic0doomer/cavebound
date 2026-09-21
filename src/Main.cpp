@@ -12,7 +12,6 @@
 #include "cave/CaveWalls.h"
 #include "robot/Robot.h"
 #include "gameobjects/LevelObjects.h"
-#include "demo/DemoViews.h"
 
 using namespace std;
 using namespace glm;
@@ -70,31 +69,24 @@ int main() {
 		return -1;
 	}
 
-	// The camera starts on a three-quarter overview from the south-east, about 42 degrees above the floor. It
-	// looks into the cave over the low near-side walls (the cutaway in CaveWalls.cpp), so the whole plan and
-	// everything in it is visible. It can then be flown around and sent to close-ups (see the controls below).
-	// Moving the robot or any other object remains a later-phase feature.
-	Camera camera(DemoViews::OverviewPosition(), DemoViews::OverviewTarget(),
+	Camera camera(vec3(0.0f, 6.0f, 9.0f), vec3(0.0f, 1.5f, 0.0f),
 		static_cast<float>(framebufferWidth) / static_cast<float>(framebufferHeight));
 	glfwSetWindowUserPointer(window, &camera);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-	// Static scene: the Phase 2 cave plus the Phase 3 robot. Neither object has movement yet.
 	unique_ptr<Cave> cave = make_unique<Cave>();
 	unique_ptr<Robot> robot = make_unique<Robot>();
-	robot->SetPosition(vec3(0.0f, 0.0f, 0.0f)); // centre of the main chamber
+	robot->SetPosition(cave->GetLayout().TileCenter(7, 8));
 	robot->SetRotation(vec3(0.0f, 0.0f, 0.0f));
 	robot->SetScale(vec3(0.90f));
-	robot->SetHeadRotation(vec3(0.0f, -12.0f, 0.0f)); // static pose: head branch turns with eyes and antenna
+	robot->SetHeadRotation(vec3(0.0f, -12.0f, 0.0f));
 
 	// Phase 4: checkpoints, treasure chest, coins, gems and the exit marker, placed on the cave tiles.
 	// They are only placed here; nothing can be collected or triggered yet.
 	unique_ptr<LevelObjects> level = make_unique<LevelObjects>(cave->GetLayout());
 
-	// Demo camera: keyboard/mouse flying plus number keys that glide to a close-up of each kind of object
 	CameraController cameraController(window, camera);
-	DemoViews demoViews(cameraController, cave->GetLayout(), *level, *robot);
-	DemoViews::PrintHelp();
+	cout << "Third-person controls\n  W A S D    move robot\n  Right mouse drag    orbit camera\n  Shift      sprint\n  C          toggle cave cutaway\n  Esc        quit\n" << endl;
 
 	// Depth testing: the closest fragment wins, whatever the drawing order
 	glEnable(GL_DEPTH_TEST);
@@ -121,8 +113,7 @@ int main() {
 			cout << "Wall cutaway: " << (CaveWalls::IsCutaway() ? "on" : "off") << endl;
 		}
 
-		cameraController.Update(deltaTime);
-		demoViews.Update();
+		cameraController.UpdateThirdPerson(deltaTime, robot->position, robot->rotation);
 
 		glClearColor(0.025f, 0.018f, 0.015f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

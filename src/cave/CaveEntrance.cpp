@@ -12,13 +12,12 @@ CaveEntrance::CaveEntrance(const CaveLayout& layout)
 	position = layout.TileCenter(layout.EntranceCol(), layout.EntranceRow() + 1);
 	const float frontZ = CaveLayout::TILE / 2.0f - 0.5f; // the arch stands at the front of that tile
 
-	// Two posts (stretched cubes)
-	AddPart(std::make_unique<Cube>(1.0f, stone), glm::vec3(-1.2f, (H + 0.3f) / 2.0f, frontZ), glm::vec3(0.0f), glm::vec3(0.7f, H + 0.3f, 0.9f));
-	AddPart(std::make_unique<Cube>(1.0f, stone), glm::vec3( 1.2f, (H + 0.3f) / 2.0f, frontZ), glm::vec3(0.0f), glm::vec3(0.7f, H + 0.3f, 0.9f));
-
-	// Lintel across the top, and a keystone (a cube turned 45 degrees around Z, i.e. a diamond) above it
-	AddPart(std::make_unique<Cube>(1.0f, stone * 0.9f), glm::vec3(0.0f, H - 0.15f, frontZ), glm::vec3(0.0f), glm::vec3(3.8f, 0.9f, 1.0f));
-	AddPart(std::make_unique<Cube>(1.0f, stone * 1.1f), glm::vec3(0.0f, H + 0.55f, frontZ), glm::vec3(0.0f, 0.0f, 45.0f), glm::vec3(0.7f, 0.7f, 0.8f));
+	// Low-poly boulders form a rough natural arch instead of a constructed doorway.
+	AddPart(std::make_unique<Sphere>(0.5f, 8, 5, stone), glm::vec3(-1.35f, 1.1f, frontZ), glm::vec3(0.0f, 15.0f, 0.0f), glm::vec3(1.35f, 2.3f, 1.0f));
+	AddPart(std::make_unique<Sphere>(0.5f, 8, 5, stone * 0.92f), glm::vec3(1.35f, 1.2f, frontZ), glm::vec3(0.0f, -20.0f, 0.0f), glm::vec3(1.3f, 2.2f, 1.0f));
+	AddPart(std::make_unique<Sphere>(0.5f, 8, 5, stone * 0.86f), glm::vec3(0.0f, H - 0.05f, frontZ), glm::vec3(0.0f, 35.0f, 0.0f), glm::vec3(2.2f, 1.0f, 1.0f));
+	AddPart(std::make_unique<Sphere>(0.5f, 7, 4, stone * 1.08f), glm::vec3(-0.55f, H + 0.35f, frontZ), glm::vec3(0.0f, 45.0f, 0.0f), glm::vec3(0.9f, 0.8f, 0.9f));
+	AddPart(std::make_unique<Sphere>(0.5f, 7, 4, stone * 0.96f), glm::vec3(0.7f, H + 0.4f, frontZ), glm::vec3(0.0f, -25.0f, 0.0f), glm::vec3(1.0f, 0.75f, 0.9f));
 
 	// Two boulders outside, one on each side
 	AddPart(std::make_unique<Sphere>(0.5f, 7, 4, glm::vec3(0.55f, 0.52f, 0.50f)), glm::vec3(-2.7f, 0.4f, 2.0f), glm::vec3(0.0f, 20.0f, 0.0f), glm::vec3(1.5f, 1.1f, 1.3f));

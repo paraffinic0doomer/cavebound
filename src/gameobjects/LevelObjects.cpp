@@ -20,34 +20,34 @@ struct GemSpot {
 // ---- Placement tables ----
 
 static const Spot NORMAL_CHECKPOINTS[] = {
-	{ 5, 7, -0.40f, -0.90f, 0.0f, 0.75f },  // main tunnel, near the entrance
-	{ 4, 4, -0.50f, -0.30f, 0.0f, 0.75f },  // main chamber, west side
+	{ 7, 13, -0.40f, -0.90f, 0.0f, 0.75f }, // deep in the main tunnel
+	{ 5, 7, -0.50f, -0.30f, 0.0f, 0.75f },  // main chamber, west side
 };
 
 // Main chamber, at the mouth of dead end 2: the last checkpoint before the treasure
-static const Spot RARE_CHECKPOINT = { 6, 3, -0.45f, -0.20f, 0.0f, 0.85f };
+static const Spot RARE_CHECKPOINT = { 7, 5, -0.45f, -0.20f, 0.0f, 0.85f };
 
 // Dead end 2, facing south (towards the way in)
 static const Spot TREASURE_CHEST = { 6, 1, -0.55f, -0.45f, 0.0f, 1.0f };
 
 // Entrance tile: the arrow on the pad points out of the cave
-static const Spot EXIT_MARKER = { 5, 8, 0.0f, -0.55f, 0.0f, 0.8f };
+static const Spot EXIT_MARKER = { 7, 16, 0.0f, -0.55f, 0.0f, 0.8f };
 
 static const Spot COINS[] = {
 	// main tunnel, on the way in
-	{ 5, 5,  0.00f, -0.05f,  20.0f, 1.0f },
-	{ 5, 6, -0.10f,  0.00f, 300.0f, 1.0f },
-	{ 5, 7,  0.40f,  0.45f,  70.0f, 1.0f },
+	{ 7, 12,  0.00f, -0.05f,  20.0f, 1.0f },
+	{ 7, 13, -0.10f,  0.00f, 300.0f, 1.0f },
+	{ 7, 14,  0.40f,  0.45f,  70.0f, 1.0f },
 	// main chamber
-	{ 6, 4,  0.00f, -0.10f, 200.0f, 1.0f },
-	{ 4, 3,  0.00f,  0.00f, 120.0f, 1.0f },
-	{ 7, 4, -0.25f, -0.20f, 330.0f, 1.0f },
+	{ 6, 6,  0.00f, -0.10f, 200.0f, 1.0f },
+	{ 4, 5,  0.00f,  0.00f, 120.0f, 1.0f },
+	{ 9, 7, -0.25f, -0.20f, 330.0f, 1.0f },
 	// left and right tunnel
-	{ 2, 4,  0.40f,  0.25f,  50.0f, 1.0f },
-	{ 8, 4, -0.15f,  0.30f, 250.0f, 1.0f },
+	{ 1, 7,  0.40f,  0.25f,  50.0f, 1.0f },
+	{ 13, 7, -0.15f,  0.30f, 250.0f, 1.0f },
 	// dead ends 1 and 3
 	{ 4, 2,  0.20f,  0.20f, 160.0f, 1.0f },
-	{ 4, 6, -0.05f, -0.20f, 100.0f, 1.0f },
+	{ 2, 10, -0.05f, -0.20f, 100.0f, 1.0f },
 	// on the way to the chest (dead end 2)
 	{ 6, 2,  0.35f, -0.10f, 280.0f, 1.0f },
 	{ 6, 1, -0.20f,  1.00f,  10.0f, 1.0f },
@@ -55,12 +55,12 @@ static const Spot COINS[] = {
 
 // One gem at the end of every branch, and one in the chamber
 static const GemSpot GEMS[] = {
-	{ { 1, 4,  0.90f, -0.25f, 0.0f, 1.15f }, GemType::Sapphire },  // end of the left tunnel
-	{ { 9, 4,  0.55f, -0.95f, 0.0f, 1.15f }, GemType::Emerald  },  // end of the right tunnel
+	{ { 0, 7,  0.90f, -0.25f, 0.0f, 1.15f }, GemType::Sapphire },  // end of the left tunnel
+	{ { 14, 7,  0.55f, -0.95f, 0.0f, 1.15f }, GemType::Emerald  },  // end of the right tunnel
 	{ { 4, 1, -1.00f,  0.05f, 0.0f, 1.15f }, GemType::Ruby     },  // end of dead end 1
-	{ { 3, 6,  0.45f,  0.85f, 0.0f, 1.15f }, GemType::Amethyst },  // end of dead end 3
+	{ { 2, 12,  0.45f,  0.85f, 0.0f, 1.15f }, GemType::Amethyst },  // end of dead end 3
 	{ { 6, 0,  0.00f,  0.95f, 0.0f, 1.15f }, GemType::Ruby     },  // end of dead end 2, behind the chest
-	{ { 3, 4,  0.15f, -0.20f, 0.0f, 1.15f }, GemType::Emerald  },  // main chamber
+	{ { 7, 8,  0.15f, -0.20f, 0.0f, 1.15f }, GemType::Emerald  },  // main chamber
 };
 
 template <size_t N>

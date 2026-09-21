@@ -17,11 +17,50 @@ void ScrollCallback(GLFWwindow*, double, double yOffset) {
 CameraController::CameraController(GLFWwindow* window, Camera& camera)
 	: window(window), camera(camera),
 	  moveSpeed(6.0f), lookSensitivity(0.15f),
+	  thirdPersonPitch(-24.0f),
 	  mouseLooking(false), lastMouseX(0.0), lastMouseY(0.0),
 	  flying(false), flightTime(0.0f), flightDuration(1.0f),
 	  startPosition(0.0f), endPosition(0.0f), startYaw(0.0f), endYaw(0.0f), startPitch(0.0f), endPitch(0.0f) {
 	std::fill(std::begin(keyWasDown), std::end(keyWasDown), false);
 	glfwSetScrollCallback(window, ScrollCallback);
+}
+
+void CameraController::UpdateThirdPerson(float deltaTime, glm::vec3& robotPosition, glm::vec3& robotRotation) {
+	float lookYaw = 0.0f;
+	float lookPitch = 0.0f;
+	bool rightButton = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS;
+	if (rightButton) {
+		double x, y;
+		glfwGetCursorPos(window, &x, &y);
+		if (mouseLooking) {
+			lookYaw = static_cast<float>(x - lastMouseX) * lookSensitivity;
+			lookPitch = static_cast<float>(y - lastMouseY) * lookSensitivity;
+		}
+		lastMouseX = x;
+		lastMouseY = y;
+	}
+	mouseLooking = rightButton;
+
+	float heading = camera.yaw + lookYaw;
+	if (lookYaw != 0.0f || lookPitch != 0.0f)
+		thirdPersonPitch = std::clamp(thirdPersonPitch + lookPitch, -8.0f, 55.0f);
+
+	glm::vec3 forward(std::cos(glm::radians(heading)), 0.0f, std::sin(glm::radians(heading)));
+	glm::vec3 right(-forward.z, 0.0f, forward.x);
+	glm::vec3 move(0.0f);
+	if (KeyDown(GLFW_KEY_W)) move += forward;
+	if (KeyDown(GLFW_KEY_S)) move -= forward;
+	if (KeyDown(GLFW_KEY_D)) move += right;
+	if (KeyDown(GLFW_KEY_A)) move -= right;
+	if (glm::length(move) > 0.0f) {
+		float speed = (KeyDown(GLFW_KEY_LEFT_SHIFT) || KeyDown(GLFW_KEY_RIGHT_SHIFT)) ? 7.0f : 3.5f;
+		robotPosition += glm::normalize(move) * speed * deltaTime;
+		robotRotation.y = glm::degrees(std::atan2(move.z, move.x));
+	}
+
+	float verticalOffset = -std::tan(glm::radians(thirdPersonPitch)) * 9.0f;
+	glm::vec3 cameraPosition = robotPosition - forward * 9.0f + glm::vec3(0.0f, 1.5f + verticalOffset, 0.0f);
+	camera.LookFrom(cameraPosition, robotPosition + glm::vec3(0.0f, 1.5f, 0.0f));
 }
 
 bool CameraController::KeyDown(int key) const {
